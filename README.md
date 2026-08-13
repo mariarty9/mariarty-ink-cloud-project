@@ -1,5 +1,7 @@
 # Mariarty Ink — Cloud IT Project
 
+!!! Default admin login: `admin@mariarty.com`/`tattoo2024`
+
 A tattoo studio web application built as a cloud-native microservice system - a static frontend, an API Gateway, three backend microservices, and one serverless-style component, all containerized with Docker and orchestrated with Kubernetes.
 
 Product images are stored in **Azure Blob Storage** and referenced by URL from `shop-service`; nothing image-related is stored on disk in the containers.
@@ -36,14 +38,6 @@ Cloud IT Project/
 └── requirements.txt        
 ```
 
-
-Service | URL 
-Frontend | http://localhost:8080
-Gateway (API) | http://localhost:5000 
-
-Everything else (booking-service, shop-service, email-serverless) is only reachable internally, through the gateway.
-
-Default admin login: `admin@mariarty.com`/`tattoo2024`
 
 ## API reference (via the Gateway, port 5000)
 
