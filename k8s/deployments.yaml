@@ -228,7 +228,7 @@ spec:
       containers:
       - name: frontend
         image: mariartyacr2026.azurecr.io/frontend-service:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
