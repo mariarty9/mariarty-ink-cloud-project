@@ -1,5 +1,8 @@
 # Mariarty Ink — Cloud IT Project
 
+URL: http://70.156.229.163/
+Please make sure your browser does not automatically changes http to https
+
 !!! Default admin login: `admin@mariarty.com`/`tattoo2024`
 
 A tattoo studio web application built as a cloud-native microservice system - a static frontend, an API Gateway, three backend microservices, and one serverless-style component, all containerized with Docker and orchestrated with Kubernetes.
