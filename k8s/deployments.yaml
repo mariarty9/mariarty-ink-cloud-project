@@ -231,6 +231,9 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://gateway-service:5000"
 ---
 # Frontend Service
 apiVersion: v1
