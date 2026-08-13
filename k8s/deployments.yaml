@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: mariarty/gateway-service:latest
+        image: mariartyacr2026.azurecr.io/gateway-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
@@ -87,7 +87,7 @@ spec:
     spec:
       containers:
       - name: booking
-        image: mariarty/booking-service:latest
+        image: mariartyacr2026.azurecr.io/booking-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5001
@@ -133,7 +133,7 @@ spec:
     spec:
       containers:
       - name: email
-        image: mariarty/email-service:latest
+        image: mariartyacr2026.azurecr.io/email-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5002
@@ -177,7 +177,7 @@ spec:
     spec:
       containers:
       - name: shop
-        image: mariarty/shop-service:latest
+        image: mariartyacr2026.azurecr.io/shop-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5003
@@ -222,7 +222,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: mariarty/frontend:latest
+        image: mariartyacr2026.azurecr.io/frontend:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
