@@ -135,7 +135,7 @@ spec:
     spec:
       containers:
       - name: email
-        image: mariartyacr2026.azurecr.io/email-service:latest
+        image: mariartyacr2026.azurecr.io/email-serverless:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5002
@@ -227,7 +227,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: mariartyacr2026.azurecr.io/frontend:latest
+        image: mariartyacr2026.azurecr.io/frontend-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
