@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARIARTY INK | Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="conventions.html">Conventions</a>
+        </div>
+        
+        <div class="nav-center logo">
+            <h1>MARIARTY INK</h1>
+            <span>STUDIO</span>
+        </div>
+
+        <div class="nav-right">
+            <a href="account.html">Login/Admin</a>
+            <a href="cart.html" class="cart-btn active">
+                <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+            </a>
+            <a href="booking.html" class="btn btn-red">Book now</a>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h2>YOUR CART</h2>
+        <p>Review your items and proceed to secure checkout.</p>
+    </section>
+
+    <div class="container">
+        <div class="cart-page-layout">
+            
+            <!-- Left side - items -->
+            <div class="cart-items-section">
+                <h3>Order Items</h3>
+                <div id="cart-items-list">
+                    <!-- Items populated by JS -->
+                </div>
+            </div>
+
+            <!-- Right side - checkout form -->
+            <div class="cart-checkout-section dark-form">
+                <h3>Order Summary</h3>
+                <div class="summary-line">
+                    <span>Subtotal:</span> <span id="cart-subtotal">$0</span>
+                </div>
+                <div id="discount-row" class="summary-line discount-text" style="display: none;">
+                    <span>Member Discount (10%):</span> <span id="cart-discount">-$0</span>
+                </div>
+                <div class="summary-line total-line" style="margin-bottom: 2rem;">
+                    <span>Total:</span> <span id="cart-final-total">$0</span>
+                </div>
+
+                <h3>Payment</h3>
+                <form id="checkout-form" onsubmit="processPayment(event)">
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <select id="payment-method" onchange="toggleCardInputs()" required>
+                            <option value="card">Credit / Debit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="studio">Pay Cash at Studio</option>
+                        </select>
+                    </div>
+
+                    <div id="card-fields">
+                        <div class="form-group">
+                            <label>Cardholder Name</label>
+                            <input type="text" placeholder="John Doe" id="card-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="4532 •••• •••• 8892" id="card-number" required>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <div class="form-group" style="flex: 1;">
+                                <label>Expiry</label>
+                                <input type="text" placeholder="MM/YY" id="card-exp" required>
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label>CVV</label>
+                                <input type="password" placeholder="123" id="card-cvv" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-red btn-block" id="checkout-btn" disabled>Confirm & Pay</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

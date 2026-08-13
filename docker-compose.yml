@@ -1,0 +1,52 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - gateway
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "5000:5000"
+    environment:
+      - BOOKING_SERVICE_URL=http://booking-service:5001
+      - SHOP_SERVICE_URL=http://shop-service:5003
+      - DATA_DIR=/app/data
+    volumes:
+      - gateway-data:/app/data
+    depends_on:
+      - booking-service
+      - shop-service
+
+  booking-service:
+    build: ./booking-service
+    ports:
+      - "5001:5001"
+    environment:
+      - EMAIL_SERVICE_URL=http://email-serverless:5002/send-email
+      - DATA_DIR=/app/data
+    volumes:
+      - booking-data:/app/data
+    depends_on:
+      - email-serverless
+
+  email-serverless:
+    build: ./email-serverless
+    ports:
+      - "5002:5002"
+
+  shop-service:
+    build: ./shop-service
+    ports:
+      - "5003:5003"
+    environment:
+      - DATA_DIR=/app/data
+    volumes:
+      - shop-data:/app/data
+
+volumes:
+  gateway-data:
+  booking-data:
+  shop-data:

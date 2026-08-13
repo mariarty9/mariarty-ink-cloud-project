@@ -1,0 +1,587 @@
+:root {
+    --bg-main: #0a0a0a;
+    --bg-card: #121212;
+    --text-main: #ffffff;
+    --text-muted: #888888;
+    --accent-red: #f70d29;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+h1, h2, h3, h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;    
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    line-height: 1;
+}
+
+.btn-red {
+    background-color: var(--accent-red);
+    color: #fff;
+}
+
+.btn-red:hover { 
+    background-color: #c40a20; 
+    color: #ffffff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn-outline:hover { 
+    background-color: #fff; 
+    color: #000; 
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-left a, .nav-right a {
+    color: #fff;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: var(--accent-red);
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    margin-bottom: -5px;
+}
+
+.logo span {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--accent-red);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://mariartystudio.blob.core.windows.net/tattoostudio-images/Homepage.jpg') center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.70);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.crown-icon {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Why choose us section */
+.split-section {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.split-left {
+    flex: 1;
+}
+
+.split-left .subtitle {
+    margin-bottom: 2rem;
+    max-width: 90%;
+   
+}
+
+.feature {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature i {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    border: 1px solid #333;
+    padding: 1rem;
+    border-radius: 50%;
+    height: fit-content;
+}
+
+/* Overlapping images */
+.split-right {
+    flex: 1;
+    position: relative;
+    height: 520px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-back {
+    position: absolute;
+    top: 20px;
+    right: -60px;
+    width: 65%;
+    height: 420px;
+    object-fit: cover; /* Prevents image distortion */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.img-front {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    width: 55%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.381);
+}
+
+/* Services section */
+.services-section {
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+}
+
+.services-header i {
+    font-size: 1.5rem; 
+    margin-bottom: 1rem;
+}
+
+.services-header p {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    padding: 3rem 2rem;
+    border: 1px solid #1f1f1f;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 2rem; 
+    margin-bottom: 1.5rem; 
+    color: #fff; 
+}
+
+.service-card h4 {
+    font-size: 1rem; 
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.price {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Banners & forms */
+.page-banner {
+    text-align: center;
+    padding: 8rem 2rem 3rem 2rem;
+    background-color: #0d0d0d;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.form-layout {
+    max-width: 600px;
+}
+
+.dark-form {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border: 1px solid #1f1f1f;
+    margin-top: 2rem;
+}
+
+.dark-form h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-red);
+}
+
+.alert-box {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.alert-info {
+    background-color: #16222f;
+    color: #64b5f6;
+    border: 1px solid #1e3a5f;
+}
+
+.alert-success {
+    background-color: #1b2e1b;
+    color: #81c784;
+    border: 1px solid #2e5a2e;
+}
+
+/*Shop alignment */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.shop-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border: 1px solid #1f1f1f;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.shop-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-5px);
+}
+
+/*Force all images to be the exact same height and cropped uniformly */
+.shop-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 1px solid #222;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensures titles align horizontally regardless of line count */
+.shop-card h4 {
+    margin-bottom: 0.75rem;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content p {
+    min-height: 3.5rem;
+}
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shop-card .price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+
+/* Cart page layout */
+.cart-page-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .cart-page-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.summary-line {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.discount-text { 
+    color: #81c784; 
+}
+
+.total-line { 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    border-top: 1px solid #333; 
+    padding-top: 1rem; 
+}
+
+.cart-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.cart-btn:hover { 
+    color: var(--accent-red); 
+}
+
+/*admin dashboard layout*/
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.booking-panel {
+    margin-top: 0;
+}
+
+.instruction-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.booking-details-card {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.booking-details-card h4 {
+    color: var(--accent-red);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.5rem;
+}
+
+.booking-details-card p {
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+.status-actions {
+    margin-top: 1.5rem;
+    border-top: 1px solid #222;
+    padding-top: 1rem;
+}
+
+.status-dropdown {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #121212;
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.status-dropdown:focus {
+    outline: none;
+    border-color: var(--accent-red);
+}
+
+/* Fullcalender */
+.calendar-container {
+    margin-top: 0;
+    padding: 1.5rem;
+}
+
+:root {
+    --fc-page-bg-color: transparent;
+    --fc-neutral-bg-color: #121212;
+    --fc-neutral-text-color: #ffffff;
+    --fc-border-color: #333333;
+    --fc-button-text-color: #ffffff;
+    --fc-button-bg-color: #1a1a1a;
+    --fc-button-border-color: #333333;
+    --fc-button-hover-bg-color: #2a2a2a;
+    --fc-button-hover-border-color: #444444;
+    --fc-button-active-bg-color: var(--accent-red);
+    --fc-button-active-border-color: var(--accent-red);
+    --fc-event-bg-color: var(--accent-red);
+    --fc-event-border-color: var(--accent-red);
+    --fc-today-bg-color: rgba(247, 13, 41, 0.1);
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fc-theme-standard th {
+    padding: 10px 0;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+.fc-daygrid-day-number {
+    color: #fff;
+    text-decoration: none;
+}
+
+.fc-daygrid-day-number:hover {
+    color: var(--accent-red);
+}

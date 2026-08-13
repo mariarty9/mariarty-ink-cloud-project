@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARIARTY INK | Booking & Consultation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Shared header -->
+
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="conventions.html">Conventions</a>
+        </div>
+        
+        <div class="nav-center logo">
+            <h1>MARIARTY INK</h1>
+            <span>STUDIO</span>
+        </div>
+
+        <div class="nav-right">
+            <a href="account.html">Login/Admin</a>
+            <a href="shop.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="booking.html" class="active btn btn-red">Book now</a>
+        </div>
+    </header>
+
+    <!-- Header banner -->
+
+    <section class="page-banner">
+        <h2>BOOK YOUR SESSION</h2>
+        <p>Submit your idea, body placement, and preferred timeline for tattoo.</p>
+    </section>
+
+    <div class="container form-layout">
+        <!-- Status banners (will be toggled via script.js based on login state) -->
+        <div id="discount-banner" class="alert-box alert-success" style="display: none;">
+            <i class="fas fa-tag"></i> <strong>VIP Member:</strong> 10% discount applied automatically to your booking estimation!
+        </div>
+        <div id="guest-banner" class="alert-box alert-info">
+            <i class="fas fa-info-circle"></i> Logged in accounts automatically receive a 10% member discount. <a href="account.html">Login here</a>.
+        </div>
+
+        <!-- Booking request form -->
+        <form id="booking-form" class="dark-form"">
+            <h3>SESSION DETAILS</h3>
+            
+            <div class="form-group">
+                <label for="client-name">Full Name</label>
+                <input type="text" id="client-name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="client-email">Email Address</label>
+                <input type="email" id="client-email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tattoo-placement">Body Placement & Size</label>
+                <input type="text" id="tattoo-placement" placeholder="e.g. Forearm, 15cm x 10cm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tattoo-idea">Concept Description</label>
+                <textarea id="tattoo-idea" rows="4" placeholder="Describe your design concept, style preferences, or custom requirements..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred-date">Preferred Date</label>
+                <input type="date" id="preferred-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred-time">Preferred Time</label>
+                <select id="preferred-time" required>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-red btn-block">Submit Booking Request</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
