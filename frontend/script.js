@@ -1,6 +1,6 @@
 //Single point of configuration for the API Gateway address.
 
-const API_BASE = 'http://70.156.229.163:30187';
+const API_BASE = '';
 
 document.addEventListener('DOMContentLoaded', function() {
     //Dom elements
