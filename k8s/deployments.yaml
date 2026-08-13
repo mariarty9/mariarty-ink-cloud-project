@@ -1,5 +1,4 @@
-
-#Gateway microservice
+# Gateway PVC
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -10,13 +9,13 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
+---
+# Gateway Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway-service
 spec:
-  #NOTE: kept at 1 replica because the SQLite DB lives on a ReadWriteOnce volume — multiple pods can't safely share one SQLite file. Scaling this to >1 replica requires moving to a real database
   replicas: 1
   selector:
     matchLabels:
@@ -28,7 +27,7 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: mariarty/gateway-service:latest
+        image: mariartyacr2026.azurecr.io/gateway-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
@@ -46,7 +45,8 @@ spec:
       - name: gateway-data
         persistentVolumeClaim:
           claimName: gateway-data-pvc
-
+---
+# Gateway Service
 apiVersion: v1
 kind: Service
 metadata:
@@ -58,8 +58,8 @@ spec:
     targetPort: 5000
   selector:
     app: gateway
-
-#Booking microservice
+---
+# Booking PVC
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -70,7 +70,8 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
+---
+# Booking Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -87,7 +88,7 @@ spec:
     spec:
       containers:
       - name: booking
-        image: mariarty/booking-service:latest
+        image: mariartyacr2026.azurecr.io/booking-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5001
@@ -103,7 +104,8 @@ spec:
       - name: booking-data
         persistentVolumeClaim:
           claimName: booking-data-pvc
-
+---
+# Booking Service
 apiVersion: v1
 kind: Service
 metadata:
@@ -115,8 +117,8 @@ spec:
     targetPort: 5001
   selector:
     app: booking
-
-#Email-serverless microservice
+---
+# Email Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -133,10 +135,12 @@ spec:
     spec:
       containers:
       - name: email
-        image: mariarty/email-service:latest
+        image: mariartyacr2026.azurecr.io/email-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5002
+---
+# Email Service
 apiVersion: v1
 kind: Service
 metadata:
@@ -148,8 +152,8 @@ spec:
     targetPort: 5002
   selector:
     app: email
-
-#Shop microservice
+---
+# Shop PVC
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -160,7 +164,8 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
+---
+# Shop Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -177,7 +182,7 @@ spec:
     spec:
       containers:
       - name: shop
-        image: mariarty/shop-service:latest
+        image: mariartyacr2026.azurecr.io/shop-service:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5003
@@ -191,7 +196,8 @@ spec:
       - name: shop-data
         persistentVolumeClaim:
           claimName: shop-data-pvc
-
+---
+# Shop Service
 apiVersion: v1
 kind: Service
 metadata:
@@ -203,9 +209,8 @@ spec:
     targetPort: 5003
   selector:
     app: shop
-
-
-#Frontend
+---
+# Frontend Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -222,11 +227,12 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: mariarty/frontend:latest
+        image: mariartyacr2026.azurecr.io/frontend:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
-
+---
+# Frontend Service
 apiVersion: v1
 kind: Service
 metadata:
