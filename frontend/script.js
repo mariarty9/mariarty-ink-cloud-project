@@ -1,6 +1,6 @@
 //Single point of configuration for the API Gateway address.
 
-const API_BASE = '';
+const API_BASE = 'http://localhost:5000';
 
 document.addEventListener('DOMContentLoaded', function() {
     //Dom elements
