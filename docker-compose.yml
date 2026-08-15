@@ -4,9 +4,9 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - gateway
+      - gateway-service
 
-  gateway:
+  gateway-service:
     build: ./gateway
     ports:
       - "5000:5000"
